@@ -41,7 +41,7 @@ function App() {
           
           <form onSubmit={handleSubmit} className='flex font-karla justify-center p-2 mx-16'>
               <input ref={inputUrlRef} className='bg-slate-300 p-2 w-80' 
-              type="text" id="ytId" placeholder='Enter Youtube link' autoComplete="off"/>
+              type="text" id="ytId" placeholder='Paste Youtube link' autoComplete="off"/>
               <button className='bg-slate-300 p-2 ml-2 rounded hover:bg-slate-200 transition-all' type='submit' id='convert-button'>Convert</button>
           </form>
 

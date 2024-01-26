@@ -6,6 +6,7 @@ import Header from "./components/Header";
 function App() {
   const inputUrlRef = useRef();
   const [urlResult, setUrlResult] = useState(null);
+  const [errorDisplay, setErrorDisplay] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -23,12 +24,28 @@ function App() {
       }
     }
 
+
     axios(options)
-      .then(res => setUrlResult(res.data.link))
-      .catch (error => console.log(error))
-
+      .then((res) => {
+        if (res.data.link) {
+          setUrlResult(res.data.link)
+        } else {
+          console.log(res.data.msg) 
+          setErrorDisplay("Something went wrong. Enter a valid youtube link.")
+        }
+      }) 
+      .catch ((error) => {
+        if (error.data) { // status code out of the range of 2xx
+          console.log("Data :" , error.data);
+          console.log("Status :" + error.data.status);
+        } else if (error.request) { // The request was made but no response was received
+          console.log(error.request);
+        } else {// Error on setting up the request
+          console.log('Error', error.data.msg);
+        }
+      })
+      // .catch (error => console.log(error))
     inputUrlRef.current.value = '';
-
   }
 
   return (
@@ -45,6 +62,10 @@ function App() {
               type="text" id="ytId" placeholder='Paste Youtube link here' autoComplete="off"/>
               <button className='bg-slate-300 p-2 ml-2 rounded hover:bg-slate-200 transition-all' type='submit' id='convert-button'>Convert</button>
           </form>
+
+          <div className="flex justify-center mt-10">
+            {errorDisplay ? <h1>{errorDisplay}</h1> : ""}
+          </div>
 
           <div className="flex justify-center mt-10">
             {urlResult ? <a target='_blank' rel="noreferrer" href={urlResult}

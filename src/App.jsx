@@ -43,6 +43,7 @@ function App() {
 
   return (
     <div>
+
       <Header />
       <div className="flex-col justify-center items-center pt-32">
         <div className="">
@@ -56,20 +57,17 @@ function App() {
           <button className='bg-slate-300 p-2 ml-2 rounded hover:bg-slate-200 transition-all' type='submit' id='convert-button'>Convert</button>
         </form>
 
-        <div className="flex justify-center mt-14 font-karla text-s font-bold px-9 text-center">
-          {songTitle ? <h1>Title: {songTitle}</h1> : ""}
-          {}
-        </div>
+        {urlResult && songTitle ? <div className="flex-col justify-center mt-14 font-karla text-s px-9 text-center">
+          {songTitle ? <h1 className="mb-5"><span className="font-bold">Title:</span> {songTitle}</h1> : ""}
+          {urlResult ? <a target='_blank' rel="noreferrer" href={urlResult}
+          className="font-karla bg-blue-500 text-white p-2 
+          rounded font-semibold transition-color duration-200 hover:bg-blue-400">Download MP3</a> : ''}
+        </div> : ""}
 
         <div className="flex justify-center mt-1 font-karla text-red-500">
           {errorDisplay ? <h1>{errorDisplay}</h1> : ""}
         </div>
 
-        <div className="flex justify-center mt-1">
-          {urlResult ? <a target='_blank' rel="noreferrer" href={urlResult}
-          className="font-karla bg-blue-500 text-white p-2 
-          rounded font-semibold transition-color duration-200 hover:bg-blue-400">Download MP3</a> : ''}
-        </div>
       </div>
       <Footer />
     </div>

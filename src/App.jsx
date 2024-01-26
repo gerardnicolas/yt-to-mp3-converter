@@ -44,7 +44,7 @@ function App() {
   return (
     <div>
       <Header />
-      <div className="flex-col justify-center items-center pt-52">
+      <div className="flex-col justify-center items-center pt-48">
         <div className="">
           <h1 className='flex font-karla justify-center font-bold lg:text-4xl md:text-3xl sm:text-3xl pb-3 text-2xl'>Youtube to MP3 Converter</h1>
           <p className="flex font-karla justify-center text-s pb-10">Convert a Youtube Video to MP3!</p>

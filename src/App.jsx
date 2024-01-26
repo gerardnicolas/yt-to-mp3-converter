@@ -26,11 +26,11 @@ function App() {
         }
     })
       .then((res) => {
-        if (res.data.link && res.data.title){
+        if (res.data.link){
           setUrlResult(res.data.link)
           setSongTitle(res.data.title)
-          setErrorDisplay("")
           console.log("Successfully fetched data!")
+          setErrorDisplay("")
         } else if (!res.data.link){
           console.log(`Error: ${res.data.msg}`)
           setErrorDisplay("Enter a valid youtube link.")
@@ -44,7 +44,7 @@ function App() {
   return (
     <div>
       <Header />
-      <div className="flex-col justify-center items-center pt-48">
+      <div className="flex-col justify-center items-center pt-32">
         <div className="">
           <h1 className='flex font-karla justify-center font-bold lg:text-4xl md:text-3xl sm:text-3xl pb-3 text-2xl'>Youtube to MP3 Converter</h1>
           <p className="flex font-karla justify-center text-s pb-10">Convert a Youtube Video to MP3!</p>
@@ -56,7 +56,7 @@ function App() {
           <button className='bg-slate-300 p-2 ml-2 rounded hover:bg-slate-200 transition-all' type='submit' id='convert-button'>Convert</button>
         </form>
 
-        <div className="flex justify-center mt-14 font-karla text-lg font-bold">
+        <div className="flex justify-center mt-14 font-karla text-s font-bold px-9 text-center">
           {songTitle ? <h1>Title: {songTitle}</h1> : ""}
           {}
         </div>

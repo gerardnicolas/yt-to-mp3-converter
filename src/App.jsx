@@ -107,7 +107,7 @@ function App() {
           ''
         )}
 
-        <div className="flex justify-center font-karla text-red-500 items-center px-16 mt-5">
+        <div className="flex justify-center mt-1 font-karla text-red-500 items-center px-16">
           {errorDisplay ? <h1>{errorDisplay}</h1> : ''}
         </div>
       </div>

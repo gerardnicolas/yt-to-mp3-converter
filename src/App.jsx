@@ -33,7 +33,9 @@ function App() {
           setErrorDisplay('');
         } else {
           console.log(`Error: ${res.data.msg}`);
-          setErrorDisplay(`Oops! It looks like our servers are currently experiencing issues. Please try again later.`);
+          setErrorDisplay(
+            `Oops! It looks like our servers are currently experiencing issues. Please try again later.`
+          );
           setSongTitle('');
           setUrlResult('');
         }
